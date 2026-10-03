@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог — CosmoEmpire</title>
+<meta name="description" content="Каталог игровых софтов CosmoEmpire: фильтры по игре, типу и цене, поиск и сортировка.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">&#10052;</span>
+      <span>CosmoEmpire</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html" class="is-active">Каталог</a>
+      <a href="add-item.html">Добавить товар</a>
+      <a href="about.html">О сайте</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="pagehead">
+    <div class="crumbs"><a href="index.html">Главная</a> &rsaquo; Каталог</div>
+    <h1>Каталог</h1>
+    <p>Игровые софты с фильтрами по игре, типу и цене. Ассортимент пополняется.</p>
+  </div>
+</div>
+
+<!-- ============ ПАНЕЛЬ ФИЛЬТРОВ (поиск / игра / тип / цена / сортировка) ============ -->
+<section class="wrap" style="padding-bottom:8px">
+  <div class="panel">
+    <form class="filters" onsubmit="return false">
+
+      <div class="filters__row">
+        <div class="field">
+          <label for="f-search">Поиск по названию</label>
+          <div class="search-wrap">
+            <input class="input input--search" id="f-search" type="search" autocomplete="off"
+                   placeholder="Например: external, chm">
+            <button type="button" class="search-clear" id="f-clear" aria-label="Очистить пои">&times;</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-game">Игра</label>
+          <select class="select" id="f-game">
+            <option value="all">Все игры</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-type">Тип</label>
+          <select class="select" id="f-type">
+            <option value="all">Все типы</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-sort">Сортировка</label>
+          <select class="select" id="f-sort">
+            <option value="popular">По популярности</option>
+            <option value="new">Сначала новые</option>
+            <option value="old">Сначала старые</option>
+            <option value="price_asc">Цена: по возрастанию</option>
+            <option value="price_desc">Цена: по убыванию</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filters__row filters__row--price">
+        <div class="field">
+          <label for="f-price-min">Цена от, &#8381;</label>
+          <input class="input" id="f-price-min" type="number" inputmode="numeric" min="0" step="50" placeholder="0">
+        </div>
+        <div class="field">
+          <label for="f-price-max">Цена до, &#8381;</label>
+          <input class="input" id="f-price-max" type="number" inputmode="numeric" min="0" step="50" placeholder="Без ограничения">
+        </div>
+      </div>
+
+      <div class="filters__foot">
+        <div class="chips" id="f-chips"></div>
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap">
+          <span class="result-count" id="catalog-count">Загружаем…</span>
+          <button type="button" class="btn btn--ghost btn--sm" id="f-reset">Сбросить</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ СЕТКА КАРТОЧЕК ТОВАРОВ ============ -->
+<section class="wrap section section--tight" style="padding-top:8px">
+  <div class="card-grid" id="catalog-grid"></div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div class="footer__copy">&copy; <span id="year">2026</span> CosmoEmpire. Каталог игровых софтов.</div>
+    <nav class="footer__links">
+      <a href="index.html">Главная</a>
+      <a href="add-item.html">Добавить товар</a>
+      <a href="about.html">О сайте</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="modal" id="ce-modal"></div>
+
+<script src="js/config.js"></script>
+<script src="js/ce-core.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

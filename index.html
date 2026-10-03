@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CosmoEmpire — каталог игровых софтов</title>
+<meta name="description" content="CosmoEmpire — каталог игровых софтов. Ассортимент пополняется.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= ШАПКА ================= -->
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">&#10052;</span>
+      <span>CosmoEmpire</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="is-active">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="add-item.html">Добавить товар</a>
+      <a href="about.html">О сайте</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= ГЛАВНЫЙ ЭКРАН ================= -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Game&nbsp;Software&nbsp;Catalog</span>
+    <h1 class="title">CosmoEmpire</h1>
+    <p class="lead">Каталог игровых софтов. Ассортимент пополняется.</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="catalog.html">Каталог</a>
+      <a class="btn btn--ghost" href="add-item.html">Добавить товар</a>
+    </div>
+
+    <!-- Счётчики заполняются скриптом из таблицы (catalog.js) -->
+    <div class="stats" id="hero-stats">
+      <div class="stat">
+        <div class="stat__num" id="stat-total">&mdash;</div>
+        <div class="stat__label">Товаров в каталоге</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num" id="stat-games">&mdash;</div>
+        <div class="stat__label">Поддерживаемых игр</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num" id="stat-types">&mdash;</div>
+        <div class="stat__label">Категорий софта</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num" id="stat-updated">&mdash;</div>
+        <div class="stat__label">Последнее обновление</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПРЕИМУЩЕСТВА ================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature__icon">&#128269;</div>
+        <h3 class="feature__title">Понятный каталог</h3>
+        <p class="feature__text">Каждый товар — отдельная карточка с описанием, ценой и тегами. Ничего лишнего.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">&#128290;</div>
+        <h3 class="feature__title">Быстрые фильтры</h3>
+        <p class="feature__text">Отбор по игре, типу и цене, поиск по названию и сортировка по популярности.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">&#128200;</div>
+        <h3 class="feature__title">Актуальные данные</h3>
+        <p class="feature__text">Каталог подтягивается из таблицы, поэтому пополнение происходит без пересборки сайта.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">&#128170;</div>
+        <h3 class="feature__title">Просто добавить</h3>
+        <p class="feature__text">Заполнили форму — товар попал в таблицу и уже виден в каталоге.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПРИЗЫВ К ДЕЙСТВИЮ ================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="panel" style="text-align:center">
+      <h2 class="section__title" style="margin-bottom:10px">Ассортимент пополняется</h2>
+      <p class="section__sub" style="margin-bottom:24px">Загляните в каталог позже — товары уже могут появиться.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="catalog.html">Перейти в каталог</a>
+        <a class="btn btn--ghost" href="about.html">О проекте</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ФУТЕР ================= -->
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div class="footer__copy">&copy; <span id="year">2026</span> CosmoEmpire. Каталог игровых софтов.</div>
+    <nav class="footer__links">
+      <a href="catalog.html">Каталог</a>
+      <a href="add-item.html">Добавить товар</a>
+      <a href="about.html">О сайте</a>
+      <a href="about.html#contacts">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Контейнер модального окна «Подробнее» -->
+<div class="modal" id="ce-modal"></div>
+
+<script src="js/config.js"></script>
+<script src="js/ce-core.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

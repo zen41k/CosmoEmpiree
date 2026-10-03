@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Добавить товар — CosmoEmpire</title>
+<meta name="description" content="Форма добавления товара в каталог CosmoEmpire: название, игра, описание, цена, теги и изображение.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">&#10052;</span>
+      <span>CosmoEmpire</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="add-item.html" class="is-active">Добавить товар</a>
+      <a href="about.html">О сайте</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="pagehead">
+    <div class="crumbs"><a href="index.html">Главная</a> &rsaquo; Добавить товар</div>
+    <h1>Добавить товар</h1>
+    <p>Заполните форму — товар попадёт в таблицу каталога и появится в общем списке.</p>
+  </div>
+</div>
+
+<section class="wrap section section--tight" style="padding-top:0">
+  <div class="two-col">
+    <div>
+      <!-- Область уведомлений (заполняется скриптом) -->
+      <div id="form-status"></div>
+
+      <!-- ================= ФОРМА ================= -->
+      <form class="panel" id="add-form" novalidate>
+
+        <div class="field" style="margin-bottom:18px">
+          <label for="in-name">Название товара <span style="color:#ff6b6b">*</span></label>
+          <input class="input" id="in-name" name="name" type="text" required maxlength="120"
+                 placeholder="Например: External Premium v2">
+          <span class="field__hint">Коротко и понятно — это первое, что увидит посетитель.</span>
+        </div>
+
+        <div class="filters__row" style="margin-bottom:18px">
+          <div class="field">
+            <label for="in-game">Игра <span style="color:#ff6b6b">*</span></label>
+            <select class="select" id="in-game" name="game" required>
+              <option value="">Выберите игру</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="in-type">Тип</label>
+            <select class="select" id="in-type" name="type">
+              <option value="">Не указан</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:18px">
+          <label for="in-description">Описание <span style="color:#ff6b6b">*</span></label>
+          <textarea class="textarea" id="in-description" name="description" required maxlength="2000"
+                    placeholder="Что входит в поставку, системные требования, срок и условия."></textarea>
+          <span class="field__hint">На карточке показывается первое предложение — начните с главного.</span>
+        </div>
+
+        <div class="filters__row filters__row--price" style="margin-bottom:18px">
+          <div class="field">
+            <label for="in-price">Цена, &#8381; <span style="color:#ff6b6b">*</span></label>
+            <input class="input" id="in-price" name="price" type="number" min="0" step="1" required
+                   inputmode="numeric" placeholder="1500">
+          </div>
+          <div class="field">
+            <label for="in-image">Изображение (ссылка)</label>
+            <input class="input" id="in-image" name="image" type="url" maxlength="500"
+                   placeholder="https://... или ID файла Google Drive">
+            <span class="field__hint">Прямая ссылка или ID файла с Google Диска.</span>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:24px">
+          <label for="in-tags">Теги</label>
+          <input class="input" id="in-tags" name="tags" type="text" maxlength="200"
+                 placeholder="чит, external, esp, обновление">
+          <span class="field__hint">Через запятую. Теги помогают поиску и фильтрации.</span>
+        </div>
+
+        <div style="display:flex; gap:11px; flex-wrap:wrap; align-items:center">
+          <button class="btn btn--primary" type="submit" id="submit-btn">Отправить товар</button>
+          <button class="btn btn--ghost" type="reset" id="reset-btn">Очистить форму</button>
+        </div>
+
+        <p class="field__hint" style="margin-top:16px">
+          Поля со звёздочкой обязательны. Товар появится в каталоге после проверки модератором.
+        </p>
+      </form>
+    </div>
+
+
+    <!-- ================= ИНСТРУКЦИЯ ================= -->
+    <aside class="panel">
+      <h2 class="section__title" style="font-size:20px; margin-bottom:6px">Как это работает</h2>
+      <p class="section__sub" style="margin-bottom:20px">Куда попадают данные после отправки.</p>
+
+      <div class="prose">
+        <p><strong>1.</strong> Заполните название, игру, описание и цену — это обязательные поля.</p>
+        <p><strong>2.</strong> Отправьте форму. Данные записываются в таблицу Google Sheets
+        отдельной строкой в колонки «Название», «Игра», «Описание», «Цена», «Теги», «Изображение»,
+        «Дата добавления».</p>
+        <p><strong>3.</strong> Модератор проверяет товар и при необходимости правит его данные.</p>
+        <p><strong>4.</strong> После проверки карточка появляется в
+        <a href="catalog.html">каталоге</a> — сразу с фильтрами и поиском.</p>
+      </div>
+
+      <div class="notice" style="margin:22px 0 0">
+        <span>&#9888;</span>
+        <div>Не добавляйте вредоносные файлы и ссылки на сторонние сайты.
+        Загрузка файлов выполняется только по прямым ссылкам на изображения.</div>
+      </div>
+
+      <div style="margin-top:20px">
+        <a class="btn btn--ghost btn--block" href="catalog.html">К каталогу</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div class="footer__copy">&copy; <span id="year">2026</span> CosmoEmpire. Каталог игровых софтов.</div>
+    <nav class="footer__links">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="about.html">О сайте</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/ce-core.js"></script>
+<script src="js/add-item.js"></script>
+</body>
+</html>
